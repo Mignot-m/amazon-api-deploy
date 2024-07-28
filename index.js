@@ -1,9 +1,10 @@
-
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = require("stripe")(
+  "sk_test_51PeEwsRwMrYq4qXCOJccKNnvEyGSU6zBHWQPbWfXLAJLMmLst0fny5CQWSgSYNyr84J9ZEEEJuaxbNIfqHAC9NOz007d3s1JaE"
+);
 const app = express();
 app.use(cors());
 
@@ -31,8 +32,6 @@ app.post("/payment/create", async (req, res) => {
   }
 });
 app.listen(5000, (err) => {
-    if (err) throw err
-    console.log("Amazon server running on PORT:http://localhost:5000")
-})
-
-
+  if (err) throw err;
+  console.log("Amazon server running on PORT:http://localhost:5000");
+});
